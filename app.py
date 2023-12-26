@@ -10,7 +10,7 @@ app = Flask(__name__)
 chatbot = SaudiPersonalLawAssistant()
 app.config['SECRET_KEY']=""
 
-app.config['MYSQL_HOST'] = "localhost"
+app.config['MYSQL_HOST'] = os.getenv()
 app.config['MYSQL_USER'] = "root"
 app.config['MYSQL_PASSWORD'] = ""
 app.config['MYSQL_DB'] = "law"
