@@ -75,4 +75,4 @@ def get_bot_response():
     return jsonify('Error: Invalid request')
 
 if __name__ == "__main__":
-     app.run(debug=False)
+     app.run(host="localhost", port=8000, debug=False)
