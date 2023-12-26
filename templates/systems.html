@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container m-5 p-5">
+   {% for edu_system_with_systems in edu_systems_with_systems %}
+   <div class="row"> <!-- Start of the row -->
+       <div class="col-4 d-flex align-items-center first-cal">
+           {{ edu_system_with_systems.edu_system[1] }}
+       </div> <!-- End of the col-4 -->
+       <div class="col-8">
+           <div class="col">
+               <div class="row">
+                  {% for system in edu_system_with_systems.systems %}
+                  <a class="btn d-inline-flex gap-1 link-collapse" data-bs-toggle="collapse"
+                      href="#collapseExample{{ system[0] }}" role="button" aria-expanded="false"
+                      aria-controls="collapseExample">
+                      {{ system[1] }}
+                  </a>
+                  <div class="collapse" id="collapseExample{{ system[0] }}">
+                      <div class="card card-body w-100 h-100">
+                          {% for paragraph in system[2].split('\n') %}
+                          <p class="mb-1">{{ paragraph }}</p>
+                          {% endfor %}
+                      </div>
+                  </div>
+                  {% endfor %}
+               </div>
+           </div>
+       </div>
+   </div> <!-- End of the row -->
+   {% endfor %}
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+   $(document).ready(function () {
+       $('.btn').click(function () {
+           $('.collapse').collapse('hide');
+       });
+   });
+</script>
+{% endblock %}

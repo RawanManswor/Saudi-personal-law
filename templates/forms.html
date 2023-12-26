@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container m-5 p-5">
+    {% for form_templates_with_form in form_templates_with_forms %}
+    <div class="row">
+        <div class="col-4 d-flex align-items-center first-cal">
+            {{ form_templates_with_form.form_template[1] }}
+        </div>
+        <div class="col-8">
+            <div class="col">
+                <div class="row">
+                    {% for form in form_templates_with_form.forms %}
+                    <a class="btn  d-inline-flex gap-1 link-collapse" data-bs-toggle="collapse" href="#collapseExample{{ form[0] }}" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        {{ form[1] }}
+                    </a>
+                    <div class="collapse"  id="collapseExample{{ form[0] }}">
+                        <div class="card card-body w-100 h-100">
+                            {% for paragraph in form[2].split('\n') %}
+                            <p class="mb-1">{{ paragraph }}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('.btn').click(function() {
+        $('.collapse').collapse('hide');
+    });
+});
+</script>
+{% endblock %}
