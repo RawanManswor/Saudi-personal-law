@@ -5,19 +5,40 @@ html {
 	height: 100%;
 	margin: 0;
 	background: #f0f0f0;
-
+	font-family: "Tajawal";
 	/* background: -webkit-linear-gradient(to right, rgb(40, 59, 34), rgb(54, 60, 70), rgb(32, 32, 43));
 	background: linear-gradient(to right, rgb(38, 51, 61), rgb(50, 55, 65), rgb(33, 33, 78));
  */
-}
 
+}
+/* This will affect the scrollbar globally */
+::-webkit-scrollbar {
+	width: 12px;
+ }
+ 
+ /* Track */
+ ::-webkit-scrollbar-track {
+	background: #ffffff; 
+ }
+  
+ /* Handle */
+ ::-webkit-scrollbar-thumb {
+	background: #444444; 
+ }
+ 
+ /* Handle on hover */
+ ::-webkit-scrollbar-thumb:hover {
+	background: #2F2F2F; 
+ }
+ 
 .chat {
 	margin-top: auto;
 	margin-bottom: auto;
+	height: calc(100vh - 100px);
 }
 
 .card-chat {
-	height: calc(100vh - 100px);
+	
 	/* height: 500px; */
 	border-radius: 15px !important;
 	background-color: rgba(68, 68, 68) !important;
@@ -283,18 +304,22 @@ html {
 
 .nav-link {
 	color: white !important;
-}
-
-.nav-link {
 	position: relative;
 }
 
-.nav-link:hover::after {
+a.nav-link {
+	padding: 0.5rem 1rem !important;
+	width: fit-content;
+
+}
+
+a.nav-link:hover::after {
 	content: '';
 	position: absolute;
 	left: 0;
 	right: 0;
 	bottom: 0;
+	width: 100%;
 	height: 2px;
 	background: rgb(244, 201, 98);
 }
@@ -316,17 +341,20 @@ html {
 .icon-nav {
 	margin-left: 5rem;
 }
+
 .navbar-toggler-icon {
 	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(255, 255, 255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-   }
-   .navbar-toggler-icon:focus {
-	outline: none;
- }
- .navbar-toggler:active,
-.navbar-toggler-icon:active {
-   box-shadow: none;
 }
+
+.navbar-toggler:focus {
+	box-shadow: none;
+}
+
 .first-cal {
 	background-color: #404040;
 	color: white;
+	height: 200px;
+	;
 }
+
+/*chat.html*/
